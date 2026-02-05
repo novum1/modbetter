@@ -1,0 +1,38 @@
+{
+  "_docs": {
+    "description": "Affiliate product database. Each entry creates a /go/{slug} redirect.",
+    "howToAdd": "Add new entry with slug, url, and optional description. Then add redirect to vercel.json.",
+    "example": {
+      "slug": "product-name",
+      "url": "https://affiliate-link.com/?ref=modbetter",
+      "description": "What this product is (for internal reference)"
+    }
+  },
+  "products": [
+    {
+      "slug": "container-home-guide",
+      "url": "https://example.com/affiliate-link-placeholder",
+      "description": "DIY container home building guide (placeholder - replace with real link)"
+    },
+    {
+      "slug": "foundation-calculator",
+      "url": "https://example.com/affiliate-link-placeholder",
+      "description": "Foundation cost calculator tool (placeholder)"
+    },
+    {
+      "slug": "container-supplier",
+      "url": "https://example.com/affiliate-link-placeholder",
+      "description": "Shipping container supplier (placeholder)"
+    },
+    {
+      "slug": "insulation-kit",
+      "url": "https://example.com/affiliate-link-placeholder",
+      "description": "Container insulation kit (placeholder)"
+    },
+    {
+      "slug": "garage-door",
+      "url": "https://example.com/affiliate-link-placeholder",
+      "description": "Roll-up garage door for containers (placeholder)"
+    }
+  ]
+}

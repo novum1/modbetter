@@ -1,0 +1,57 @@
+---
+// Last updated: 2026-02-05 01:25:00
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="ModBetter is a resource for shipping container conversions - garages, offices, coffee shops, and more."
+>
+  <Nav />
+  <main>
+    <h1>About ModBetter</h1>
+
+    <p>
+      ModBetter is a resource for people interested in shipping container
+      conversions. We cover garages, offices, coffee shops, restaurants,
+      man caves, and other container projects.
+    </p>
+
+    <p>
+      Our guides focus on practical information: real costs, what permits
+      you need, foundation requirements, and lessons from actual projects.
+    </p>
+
+    <h2>Affiliate Disclosure</h2>
+    <p>
+      Some articles contain affiliate links to products and suppliers. If you
+      buy through those links, we earn a small commission at no extra cost to
+      you. This helps keep the site running.
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem;
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+</style>

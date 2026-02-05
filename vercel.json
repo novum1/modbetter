@@ -1,0 +1,194 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/blog/can-a-shipping-container-be-used-as-a-garage/",
+      "destination": "/blog/how-to-build-a-backyard-oasis-with-a-2-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/can-you-use-a-shipping-container-as-a-garage/",
+      "destination": "/blog/how-to-build-a-backyard-oasis-with-a-2-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/container-garage-ideas/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/shipping-container-as-garage-2/",
+      "destination": "/blog/shipping-container-as-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shipping-containers-as-garages/",
+      "destination": "/blog/shipping-container-as-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shipping-container-for-garage/",
+      "destination": "/blog/how-to-build-a-backyard-oasis-with-a-2-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shipping-container-garage-2/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/garage-out-of-shipping-containers-2/",
+      "destination": "/blog/garage-out-of-shipping-containers/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/garage-built-from-shipping-containers/",
+      "destination": "/blog/building-a-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/garage-made-with-shipping-containers/",
+      "destination": "/blog/building-a-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/garage-made-out-of-shipping-containers/",
+      "destination": "/blog/building-a-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shipping-container-garage-ideas-2/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shipping-containers-garage/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shipping-container-garage-for-sale/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/diy-container-garage/",
+      "destination": "/blog/diy-container-garage-conversion-guide-how-to-avoid-the-hidden-pitfalls-that-stall-most-builds/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/building-a-garage-with-shipping-containers/",
+      "destination": "/blog/building-a-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/make-garage-out-of-shipping-container/",
+      "destination": "/blog/garage-out-of-shipping-containers/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/custom-shipping-container-garage/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/plans-for-shipping-container-garages/",
+      "destination": "/blog/shipping-container-garage-floor-plan/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/roll-up-garage-door-for-shipping-container/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/garage-door-in-shipping-container/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/shipping-container-garage-door/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+
+    {
+      "source": "/custom-container-blog/",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/custom-container-blog/:slug*",
+      "destination": "/blog/:slug*",
+      "permanent": true
+    },
+
+    {
+      "source": "/shipping-container-garages/",
+      "destination": "/blog/how-to-build-a-backyard-oasis-with-a-2-shipping-container-garage/",
+      "permanent": true
+    },
+    {
+      "source": "/shipping-container-offices/",
+      "destination": "/blog/shipping-container-offices/",
+      "permanent": true
+    },
+    {
+      "source": "/office-trailers/",
+      "destination": "/blog/shipping-container-workspaces/",
+      "permanent": true
+    },
+    {
+      "source": "/container-garage-projects/",
+      "destination": "/blog/shipping-container-garage-ideas/",
+      "permanent": true
+    },
+
+    {
+      "source": "/shipping-container-homes/",
+      "destination": "/",
+      "permanent": true
+    },
+    { "source": "/industrial/", "destination": "/", "permanent": true },
+    { "source": "/shop/", "destination": "/", "permanent": true },
+
+    { "source": "/about-us/", "destination": "/about/", "permanent": true },
+    { "source": "/contact-us/", "destination": "/contact/", "permanent": true },
+    { "source": "/quote/", "destination": "/contact/", "permanent": true },
+    { "source": "/feedback/", "destination": "/contact/", "permanent": true },
+
+    {
+      "source": "/recommends/:slug*",
+      "destination": "/go/:slug*",
+      "permanent": true
+    },
+
+    {
+      "_comment": "AFFILIATE LINKS - Edit URLs below. See src/data/products.json for reference.",
+      "source": "/go/container-home-guide/",
+      "destination": "https://example.com/affiliate-link-placeholder",
+      "permanent": false
+    },
+    {
+      "source": "/go/foundation-calculator/",
+      "destination": "https://example.com/affiliate-link-placeholder",
+      "permanent": false
+    },
+    {
+      "source": "/go/container-supplier/",
+      "destination": "https://example.com/affiliate-link-placeholder",
+      "permanent": false
+    },
+    {
+      "source": "/go/insulation-kit/",
+      "destination": "https://example.com/affiliate-link-placeholder",
+      "permanent": false
+    },
+    {
+      "source": "/go/garage-door/",
+      "destination": "https://example.com/affiliate-link-placeholder",
+      "permanent": false
+    }
+  ]
+}

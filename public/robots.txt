@@ -1,0 +1,5 @@
+# Last updated: 2026-02-05
+User-agent: *
+Allow: /
+
+Sitemap: https://modbetter.com/sitemap-index.xml
