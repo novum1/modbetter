@@ -1,8 +1,9 @@
 ---
-// Last updated: 2026-02-05 01:25:00
+// Last updated: 2026-02-05 02:30:00
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 
 const posts = await getCollection("blog");
 
@@ -26,73 +27,150 @@ const featuredPosts = topSlugs
   description="Everything you need to know about shipping container conversions. Garages, offices, coffee shops, and more."
 >
   <Nav />
+
   <main>
     <section class="hero">
-      <h1>Everything you need to know about shipping container conversions.</h1>
-      <p>
-        Garages, offices, coffee shops, restaurants, man caves, and more.
-        Real costs, real projects, practical guides.
-      </p>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <h1>AMERICA'S #1 CONTAINER GARAGE RESEARCH HUB</h1>
+        <p>
+          Everything you need to know about shipping container conversions.
+          Garages, offices, coffee shops, restaurants, man caves, and more.
+        </p>
+        <a href="/blog/" class="btn">Browse Articles</a>
+      </div>
     </section>
 
     <section class="featured">
-      <h2>Popular Guides</h2>
-      <div class="post-grid">
-        {featuredPosts.map((post) => (
-          <a href={`/blog/${post.data.slug}/`} class="post-card">
-            <h3>{post.data.title}</h3>
-            <p>{post.data.description.slice(0, 120)}...</p>
-          </a>
-        ))}
+      <div class="container">
+        <h2>Popular Guides</h2>
+        <div class="post-grid">
+          {featuredPosts.map((post) => (
+            <a href={`/blog/${post.data.slug}/`} class="post-card">
+              <div class="card-content">
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description.slice(0, 100)}...</p>
+                <span class="read-more">READ MORE &raquo;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+        <p class="more">
+          <a href="/blog/" class="btn">View All Articles</a>
+        </p>
       </div>
-      <p class="more">
-        <a href="/blog/">View all articles →</a>
-      </p>
     </section>
 
     <section class="topics">
-      <h2>What We Cover</h2>
-      <ul>
-        <li><strong>Container Garages</strong> — Foundations, doors, costs, and conversion guides.</li>
-        <li><strong>Coffee Shops & Restaurants</strong> — Permits, layouts, and design ideas.</li>
-        <li><strong>Offices & Workspaces</strong> — Backyard offices, commercial builds, remote setups.</li>
-        <li><strong>Man Caves</strong> — Bars, workshops, retreats.</li>
-        <li><strong>Financing</strong> — How to pay for a container project.</li>
-      </ul>
+      <div class="container">
+        <h2>What We Cover</h2>
+        <div class="topics-grid">
+          <div class="topic-card">
+            <h3>Container Garages</h3>
+            <p>Foundations, doors, costs, and conversion guides.</p>
+          </div>
+          <div class="topic-card">
+            <h3>Coffee Shops & Restaurants</h3>
+            <p>Permits, layouts, and design ideas.</p>
+          </div>
+          <div class="topic-card">
+            <h3>Offices & Workspaces</h3>
+            <p>Backyard offices, commercial builds, remote setups.</p>
+          </div>
+          <div class="topic-card">
+            <h3>Man Caves</h3>
+            <p>Bars, workshops, retreats.</p>
+          </div>
+          <div class="topic-card">
+            <h3>Financing</h3>
+            <p>How to pay for a container project.</p>
+          </div>
+          <div class="topic-card">
+            <h3>DIY Guides</h3>
+            <p>Step-by-step builds and pitfalls to avoid.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>WHY USE MODBETTER FOR YOUR CONTAINER GARAGE RESEARCH?</h2>
+        <div class="cta-grid">
+          <div class="cta-item">
+            <h4>Real Cost Breakdowns</h4>
+            <p>Not vague estimates. Actual project costs from real builds.</p>
+          </div>
+          <div class="cta-item">
+            <h4>Practical Guides</h4>
+            <p>Step-by-step instructions you can actually follow.</p>
+          </div>
+          <div class="cta-item">
+            <h4>No Sales Pitch</h4>
+            <p>We're a research hub, not a sales team.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+
+  <Footer />
 </BaseLayout>
 
 <style>
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1rem 4rem;
+  .hero {
+    position: relative;
+    background: var(--navy);
+    background-image: url("/images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 0;
+    text-align: center;
+    color: var(--white);
   }
 
-  .hero {
-    padding: 2rem 0 3rem;
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.9), rgba(30, 58, 95, 0.7));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
   }
 
   .hero h1 {
     font-size: 2rem;
-    line-height: 1.2;
     margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
   }
 
   .hero p {
     font-size: 1.1rem;
-    line-height: 1.6;
-    color: #444;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
   }
 
   .featured {
-    padding: 2rem 0;
-    border-top: 1px solid #eee;
+    padding: 4rem 0;
+    background: var(--gray-light);
   }
 
   .featured h2 {
-    margin-bottom: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: var(--navy);
   }
 
   .post-grid {
@@ -106,62 +184,142 @@ const featuredPosts = topSlugs
     }
   }
 
+  @media (min-width: 900px) {
+    .post-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   .post-card {
     display: block;
-    padding: 1.25rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
   .post-card:hover {
-    border-color: #000;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-content {
+    padding: 1.5rem;
   }
 
   .post-card h3 {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     line-height: 1.3;
+    color: var(--navy);
   }
 
   .post-card p {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--gray);
     line-height: 1.5;
-    margin: 0;
-  }
-
-  .more {
-    margin-top: 1.5rem;
-  }
-
-  .more a {
-    color: #000;
-  }
-
-  .topics {
-    padding: 2rem 0;
-    border-top: 1px solid #eee;
-  }
-
-  .topics h2 {
     margin-bottom: 1rem;
   }
 
-  .topics ul {
-    list-style: none;
-    padding: 0;
+  .read-more {
+    font-family: "Oswald", system-ui, sans-serif;
+    font-size: 0.875rem;
+    color: var(--orange);
+    font-weight: 500;
   }
 
-  .topics li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #eee;
-    line-height: 1.5;
+  .more {
+    text-align: center;
+    margin-top: 2rem;
   }
 
-  .topics li:last-child {
-    border-bottom: none;
+  .topics {
+    padding: 4rem 0;
+  }
+
+  .topics h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+
+  .topics-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 600px) {
+    .topics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .topics-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .topic-card {
+    padding: 1.5rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+
+  .topic-card:hover {
+    border-color: var(--orange);
+  }
+
+  .topic-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--navy);
+  }
+
+  .topic-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin: 0;
+  }
+
+  .cta {
+    padding: 4rem 0;
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .cta h2 {
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .cta-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .cta-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .cta-item h4 {
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-item p {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin: 0;
   }
 </style>

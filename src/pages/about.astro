@@ -1,7 +1,8 @@
 ---
-// Last updated: 2026-02-05 01:25:00
+// Last updated: 2026-02-05 02:40:00
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout
@@ -9,42 +10,124 @@ import Nav from "../components/Nav.astro";
   description="ModBetter is a resource for shipping container conversions - garages, offices, coffee shops, and more."
 >
   <Nav />
+
+  <div class="page-banner">
+    <div class="container">
+      <h1>About Us</h1>
+    </div>
+  </div>
+
   <main>
-    <h1>About ModBetter</h1>
+    <div class="container">
+      <div class="content-grid">
+        <div class="content">
+          <div class="icon-box"></div>
 
-    <p>
-      ModBetter is a resource for people interested in shipping container
-      conversions. We cover garages, offices, coffee shops, restaurants,
-      man caves, and other container projects.
-    </p>
+          <h2>THE MODBETTER STANDARD</h2>
 
-    <p>
-      Our guides focus on practical information: real costs, what permits
-      you need, foundation requirements, and lessons from actual projects.
-    </p>
+          <p>
+            ModBetter is a research hub dedicated to one thing:
+            helping you understand what actually works in shipping container
+            conversions, so you don't waste time and money learning the hard way.
+          </p>
 
-    <h2>Affiliate Disclosure</h2>
-    <p>
-      Some articles contain affiliate links to products and suppliers. If you
-      buy through those links, we earn a small commission at no extra cost to
-      you. This helps keep the site running.
-    </p>
+          <p>
+            Most people who look into container projects hit the same wall:
+            conflicting advice, vague cost estimates, and too many unanswered
+            details. That's where we step in. We collect real project data,
+            verified case studies, and practical guidance across garages, coffee
+            shops, offices, and more.
+          </p>
+
+          <h3>What We Cover</h3>
+          <ul>
+            <li>Side-by-side breakdowns of container garage kits and custom builds</li>
+            <li>Real-world case studies with budgets, suppliers, and lessons learned</li>
+            <li>Step-by-step guides for approvals like zoning permits, HOA hurdles, and setback rules</li>
+            <li>Honest comparisons of foundation types, insulation options, and office areas</li>
+            <li>Guidance on code, permitting, and long-term durability</li>
+          </ul>
+
+          <h3>Why It Matters</h3>
+          <p>
+            Container structures are more than just storage. They're
+            workshops, man caves, offices, and hobby rooms built from
+            materials designed to last. Done wrong, they're money pits.
+            Done right, they pay dividends.
+          </p>
+          <p>
+            We're a resource hub built for people who want clear,
+            contractor-tested advice, and proven solutions.
+          </p>
+
+          <a href="/contact/" class="btn">Contact Us</a>
+        </div>
+      </div>
+    </div>
   </main>
+
+  <section class="cta">
+    <div class="container">
+      <p class="cta-text">
+        WE PROVIDE PRACTICAL CONTAINER GARAGE SOLUTIONS THROUGH DETAILED
+        RESEARCH, REAL BUILD DOCUMENTATION, AND PROVEN GUIDANCE FOR DIY AND
+        SMALL-SCALE PROJECTS.
+      </p>
+    </div>
+  </section>
+
+  <Footer />
 </BaseLayout>
 
 <style>
-  main {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 1rem 4rem;
+  .page-banner {
+    background: var(--orange);
+    padding: 2rem 0;
   }
 
-  h1 {
+  .page-banner h1 {
+    color: var(--white);
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  main {
+    padding: 3rem 0 4rem;
+    flex: 1;
+  }
+
+  .content {
+    max-width: 700px;
+  }
+
+  .icon-box {
+    width: 48px;
+    height: 32px;
+    background: var(--orange);
     margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .icon-box::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 40px;
+    height: 24px;
+    border: 2px solid var(--white);
   }
 
   h2 {
-    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    color: var(--navy);
+    font-size: 1.1rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
@@ -53,5 +136,35 @@ import Nav from "../components/Nav.astro";
     line-height: 1.7;
     margin-bottom: 1rem;
     color: #333;
+  }
+
+  ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.25rem;
+  }
+
+  li {
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .btn {
+    margin-top: 1rem;
+  }
+
+  .cta {
+    background: var(--navy);
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .cta-text {
+    font-family: "Oswald", system-ui, sans-serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
   }
 </style>

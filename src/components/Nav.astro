@@ -1,51 +1,140 @@
 ---
-// Last updated: 2026-02-05 01:15:00
+// Last updated: 2026-02-05 02:20:00
 ---
 
 <header>
+  <div class="header-top">
+    <div class="container">
+      <a href="/" class="logo">
+        <span class="logo-icon"></span>
+        <span class="logo-text">MODBETTER</span>
+      </a>
+      <div class="header-right">
+        <span class="phone">516-253-5271</span>
+        <a href="/contact/" class="btn btn-contact">Contact</a>
+      </div>
+    </div>
+  </div>
   <nav>
-    <a href="/" class="logo">ModBetter</a>
-    <div class="links">
-      <a href="/blog/">Articles</a>
-      <a href="/about/">About</a>
-      <a href="/contact/">Contact</a>
+    <div class="container">
+      <div class="nav-links">
+        <a href="/blog/">SHIPPING CONTAINER GARAGES</a>
+        <a href="/blog/">BLOG</a>
+        <a href="/about/">ABOUT</a>
+      </div>
     </div>
   </nav>
 </header>
 
 <style>
   header {
-    border-bottom: 1px solid #eee;
-    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
-  nav {
+  .header-top {
+    background: var(--navy);
+    color: var(--white);
+    padding: 0.75rem 0;
+  }
+
+  .header-top .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
   }
 
   .logo {
-    font-weight: 700;
-    font-size: 1.25rem;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .links {
     display: flex;
-    gap: 1.5rem;
-  }
-
-  .links a {
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white);
     text-decoration: none;
-    color: #666;
   }
 
-  .links a:hover {
-    color: #000;
+  .logo-icon {
+    width: 40px;
+    height: 24px;
+    background: var(--orange);
+    position: relative;
+  }
+
+  .logo-icon::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 32px;
+    height: 16px;
+    border: 2px solid var(--white);
+  }
+
+  .logo-text {
+    font-family: "Oswald", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .phone {
+    font-weight: 600;
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .phone {
+      display: block;
+    }
+  }
+
+  .btn-contact {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--navy);
+  }
+
+  nav .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: var(--navy);
+    font-family: "Oswald", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  @media (max-width: 600px) {
+    .nav-links a {
+      padding: 0.75rem 0.75rem;
+      font-size: 0.75rem;
+    }
   }
 </style>

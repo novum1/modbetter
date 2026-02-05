@@ -1,7 +1,8 @@
 ---
-// Last updated: 2026-02-05 01:15:00
+// Last updated: 2026-02-05 02:45:00
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout
@@ -9,62 +10,127 @@ import Nav from "../components/Nav.astro";
   description="Get in touch with ModBetter. Questions, feedback, or corrections welcome."
 >
   <Nav />
+
   <main>
-    <h1>Contact</h1>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>MODBETTER:<br />CONTAINER GARAGE EXPERTS</h2>
 
-    <p>
-      Have a question about container conversions? Found an error in one of our
-      articles? Just want to say hi? We'd love to hear from you.
-    </p>
+          <div class="info-item">
+            <span class="icon">&#128222;</span>
+            <span>516-253-5271</span>
+          </div>
 
-    <form action="https://formspree.io/f/placeholder" method="POST" class="contact-form">
-      <div class="field">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required autocomplete="name" />
+          <div class="info-item">
+            <span class="icon">&#128205;</span>
+            <span>86 SOUTH TYSON AVE, SUITE 2A<br />FLORAL PARK, NEW YORK 11001</span>
+          </div>
+
+          <div class="info-item">
+            <span class="icon">&#9993;</span>
+            <a href="mailto:hello@modbetter.com">HELLO@MODBETTER.COM</a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <h3>WHAT CONTAINER GARAGE INFO DO YOU NEED?</h3>
+
+          <form action="https://formspree.io/f/placeholder" method="POST" class="contact-form">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send</button>
+          </form>
+        </div>
       </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required autocomplete="email" />
-      </div>
-
-      <div class="field">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
-
-      <button type="submit">Send Message</button>
-    </form>
-
-    <p class="note">
-      We typically respond within a few days. For urgent matters, you can also
-      reach us at <a href="mailto:hello@modbetter.com">hello@modbetter.com</a>.
-    </p>
+    </div>
   </main>
+
+  <Footer />
 </BaseLayout>
 
 <style>
   main {
-    max-width: 600px;
+    padding: 4rem 0;
+    background: var(--navy);
+    flex: 1;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 3rem;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 1rem 4rem;
   }
 
-  h1 {
-    margin-bottom: 1rem;
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
   }
 
-  p {
-    line-height: 1.7;
+  .contact-info {
+    color: var(--white);
+  }
+
+  .contact-info h2 {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: #333;
+    line-height: 1.3;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .icon {
+    font-size: 1.25rem;
+    color: var(--orange);
+  }
+
+  .info-item span:last-child,
+  .info-item a {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .info-item a {
+    color: var(--orange);
+  }
+
+  .contact-form-wrapper {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 4px;
+  }
+
+  .contact-form-wrapper h3 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--navy);
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
   }
 
   .field {
@@ -74,15 +140,17 @@ import Nav from "../components/Nav.astro";
   }
 
   label {
-    font-weight: 500;
-    font-size: 0.875rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--gray);
   }
 
   input,
   textarea {
     padding: 0.75rem;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 3px;
     font-size: 1rem;
     font-family: inherit;
   }
@@ -90,36 +158,16 @@ import Nav from "../components/Nav.astro";
   input:focus,
   textarea:focus {
     outline: none;
-    border-color: #000;
+    border-color: var(--navy);
   }
 
   textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
   }
 
-  button {
-    padding: 0.875rem 1.5rem;
-    background: #000;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  button:hover {
-    background: #333;
-  }
-
-  .note {
-    font-size: 0.875rem;
-    color: #666;
-  }
-
-  .note a {
-    color: #000;
+  .btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
   }
 </style>

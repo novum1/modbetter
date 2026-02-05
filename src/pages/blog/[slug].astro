@@ -1,8 +1,9 @@
 ---
-// Last updated: 2026-02-05 01:15:00
+// Last updated: 2026-02-05 02:50:00
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -47,75 +48,113 @@ const structuredData = {
     set:html={JSON.stringify(structuredData)}
   />
   <Nav />
-  <article class="post">
-    <h1>{post.data.title}</h1>
-    <time datetime={post.data.pubDate.toISOString()}>
-      {post.data.pubDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-    </time>
-    <Content />
-  </article>
+
+  <div class="page-banner">
+    <div class="container">
+      <h1>{post.data.title}</h1>
+    </div>
+  </div>
+
+  <main>
+    <article class="post">
+      <div class="container">
+        <div class="post-content">
+          <Content />
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
 </BaseLayout>
 
 <style>
-  .post {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 1rem 4rem;
+  .page-banner {
+    background: var(--orange);
+    padding: 2rem 0;
   }
 
-  .post h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
+  .page-banner h1 {
+    color: var(--white);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin: 0;
+    max-width: 900px;
   }
 
-  .post time {
-    display: block;
-    color: #666;
-    margin-bottom: 2rem;
+  @media (min-width: 768px) {
+    .page-banner h1 {
+      font-size: 1.75rem;
+    }
+  }
+
+  main {
+    padding: 3rem 0 4rem;
+    flex: 1;
+  }
+
+  .post-content {
+    max-width: 800px;
   }
 
   .post :global(h2) {
-    margin-top: 2rem;
+    color: var(--navy);
+    margin-top: 2.5rem;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
   }
 
   .post :global(h3) {
-    margin-top: 1.5rem;
+    color: var(--navy);
+    margin-top: 2rem;
     margin-bottom: 0.75rem;
+    font-size: 1.25rem;
   }
 
   .post :global(p) {
-    line-height: 1.7;
-    margin-bottom: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: #333;
   }
 
   .post :global(ul),
   .post :global(ol) {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     padding-left: 1.5rem;
   }
 
   .post :global(li) {
     line-height: 1.7;
     margin-bottom: 0.5rem;
+    color: #333;
   }
 
   .post :global(img) {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 4px;
     margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .post :global(a) {
-    color: #0066cc;
+    color: var(--orange);
+  }
+
+  .post :global(a:hover) {
+    color: var(--orange-hover);
+    text-decoration: underline;
   }
 
   .post :global(blockquote) {
-    border-left: 3px solid #ddd;
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    color: #666;
+    border-left: 4px solid var(--orange);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  .post :global(strong) {
+    color: var(--navy);
   }
 </style>
