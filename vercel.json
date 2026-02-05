@@ -165,7 +165,6 @@
     },
 
     {
-      "_comment": "AFFILIATE LINKS - Edit URLs below. See src/data/products.json for reference.",
       "source": "/go/container-home-guide/",
       "destination": "https://example.com/affiliate-link-placeholder",
       "permanent": false
