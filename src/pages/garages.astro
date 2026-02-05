@@ -1,0 +1,354 @@
+---
+// Last updated: 2026-02-05 14:35:00
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const posts = await getCollection("blog");
+
+const garagePosts = posts.filter((p) =>
+  p.data.title.toLowerCase().includes("garage") ||
+  p.data.slug.includes("garage")
+);
+
+const sortedPosts = garagePosts.sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout
+  title="Shipping Container Garages"
+  description="Complete guides to building shipping container garages. Costs, foundations, floor plans, DIY tips, and real project examples."
+>
+  <Nav />
+
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <h1>SHIPPING CONTAINER GARAGES</h1>
+    </div>
+  </section>
+
+  <main>
+    <div class="container">
+      <section class="feature">
+        <div class="feature-content">
+          <div class="icon">&#9998;</div>
+          <h2>SHIPPING CONTAINER GARAGE MODIFICATIONS</h2>
+          <p>
+            Container garages work because they start with solid steel structure.
+            We document which modifications add real value and which ones waste money.
+            Our research covers everything from basic insulation to full workshop conversions.
+          </p>
+          <p>
+            We track successful DIY builds to show what actually works. Most projects
+            focus on the basics first: proper foundation, weatherproofing, and electrical
+            access. Advanced modifications like overhead doors and climate control come
+            later once you're using the space.
+          </p>
+          <p>
+            Our guides break down each modification with realistic cost estimates and
+            time requirements based on documented builds, not manufacturer claims.
+          </p>
+          <a href="/blog/" class="btn">Browse Guides &rarr;</a>
+        </div>
+        <div class="feature-image">
+          <img src="/images/blog/9919e277-f72b-4b04-8647-20c92d1dd9f3.png" alt="Container garage interior" />
+        </div>
+      </section>
+    </div>
+
+    <section class="research-band">
+      <div class="container">
+        <h2>CONTAINER GARAGE RESEARCH & DOCUMENTATION</h2>
+        <p>
+          We document successful container garage builds to show what actually works and what doesn't.
+          Our research covers modifications that add real value, realistic cost breakdowns, and common
+          problems to avoid.
+        </p>
+        <p class="sub">Our documented builds include detailed information for these modification areas:</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="topics">
+        <div class="topics-grid">
+          <a href="/blog/shipping-container-garage-ideas/" class="topic-card">
+            <h3>Design Ideas</h3>
+            <p>Layout options and inspiration for your container garage project.</p>
+          </a>
+          <a href="/blog/building-a-shipping-container-garage/" class="topic-card">
+            <h3>Construction Guide</h3>
+            <p>Step-by-step process from site prep to finishing touches.</p>
+          </a>
+          <a href="/blog/shipping-container-garage-floor-plan/" class="topic-card">
+            <h3>Floor Plans</h3>
+            <p>Standard layouts with dimensions for 20ft and 40ft containers.</p>
+          </a>
+          <a href="/blog/shipping-container-garage-renovation-cost-diy-conversion-guide-why-your-project-could-cost-6k-or-26k-and-how-to-plan-smarter/" class="topic-card">
+            <h3>Cost Breakdown</h3>
+            <p>Real project costs from budget builds to premium setups.</p>
+          </a>
+          <a href="/blog/diy-container-garage-conversion-guide-how-to-avoid-the-hidden-pitfalls-that-stall-most-builds/" class="topic-card">
+            <h3>DIY Pitfalls</h3>
+            <p>Common mistakes and how to avoid them.</p>
+          </a>
+          <a href="/blog/why-your-shipping-container-garage-needs-a-foundation-and-which-kind-will-get-you-shut-down/" class="topic-card">
+            <h3>Foundation Guide</h3>
+            <p>Which foundation types work and which get rejected.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="posts">
+        <h2>ALL GARAGE GUIDES</h2>
+        <div class="post-grid">
+          {sortedPosts.map((post) => (
+            <a href={`/blog/${post.data.slug}/`} class="post-card">
+              <div class="card-content">
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description.slice(0, 100)}...</p>
+                <span class="read-more">READ MORE &raquo;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    background: var(--navy);
+    background-image: url("/images/blog/shipping-container-garage.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 0;
+    text-align: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.7), rgba(30, 58, 95, 0.5));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    color: var(--white);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    .hero h1 {
+      font-size: 3.5rem;
+    }
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .feature {
+    display: grid;
+    gap: 3rem;
+    padding: 4rem 0;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .feature {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .icon {
+    font-size: 2rem;
+    color: var(--orange);
+    margin-bottom: 1rem;
+  }
+
+  .feature h2 {
+    color: var(--navy);
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+
+  .feature-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .research-band {
+    background: var(--navy);
+    background-image: url("/images/blog/container-exterior.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 4rem 0;
+    text-align: center;
+    color: var(--white);
+  }
+
+  .research-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 58, 95, 0.85);
+  }
+
+  .research-band .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .research-band h2 {
+    color: var(--orange);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .research-band p {
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    line-height: 1.7;
+  }
+
+  .research-band .sub {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  .topics {
+    padding: 3rem 0;
+  }
+
+  .topics-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 600px) {
+    .topics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .topics-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .topic-card {
+    display: block;
+    padding: 1.5rem;
+    background: var(--gray-light);
+    border-left: 4px solid var(--orange);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+
+  .topic-card:hover {
+    background: #e8e8e8;
+  }
+
+  .topic-card h3 {
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .topic-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .posts {
+    padding: 2rem 0 4rem;
+  }
+
+  .posts h2 {
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .post-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 600px) {
+    .post-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    .post-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .post-card {
+    display: block;
+    background: var(--white);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .post-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    color: var(--navy);
+  }
+
+  .post-card p {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .read-more {
+    font-family: "Oswald", system-ui, sans-serif;
+    font-size: 0.875rem;
+    color: var(--orange);
+    font-weight: 500;
+  }
+</style>

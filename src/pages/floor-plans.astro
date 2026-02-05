@@ -1,0 +1,140 @@
+---
+// Last updated: 2026-02-05 14:30:00
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout
+  title="Floor Plans"
+  description="Shipping container floor plans for garages, offices, and workshops. Standard layouts with dimensions and customization ideas."
+>
+  <Nav />
+
+  <div class="page-banner">
+    <div class="container">
+      <h1>Floor Plans</h1>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <section class="plan">
+        <div class="plan-content">
+          <h2>Container Garage Offices</h2>
+          <p>
+            A container garage office gives you the best of both worlds: secure vehicle storage
+            plus a dedicated workspace. The standard 40ft container (8' x 40') provides roughly
+            320 square feet, which can be divided into a single-car garage bay and a small office.
+          </p>
+          <p>
+            <strong>Typical layout:</strong> 20ft garage + 20ft office, or 25ft garage + 15ft office.
+            Add windows on the office end for natural light and a separate entrance for convenience.
+          </p>
+          <a href="/blog/shipping-container-offices/" class="btn">Learn More</a>
+        </div>
+      </section>
+
+      <section class="plan">
+        <div class="plan-content">
+          <h2>Shipping Container Garage</h2>
+          <p>
+            The classic single-container garage uses a 20ft or 40ft high-cube container.
+            A 20ft container (8' x 20') fits most compact cars, ATVs, or motorcycles.
+            A 40ft container can fit a full-size truck or two smaller vehicles.
+          </p>
+          <p>
+            <strong>Key dimensions:</strong> Standard containers are 8'6" tall; high-cube containers
+            are 9'6" tall. Interior width is about 7'8" after wall treatments.
+          </p>
+          <a href="/blog/shipping-container-garage-floor-plan/" class="btn">View Floor Plans</a>
+        </div>
+      </section>
+
+      <section class="plan">
+        <div class="plan-content">
+          <h2>Double Container Garage</h2>
+          <p>
+            Two 40ft containers side by side give you a true 2-car garage with roughly 640 square feet.
+            Remove the adjoining walls to create one open space, or keep them for separate bays.
+          </p>
+          <p>
+            <strong>Configuration options:</strong> Side-by-side (16' wide x 40' deep), L-shaped
+            for corner lots, or stacked with the upper container as storage/living space.
+          </p>
+          <a href="/blog/double-shipping-container-garage/" class="btn">See Examples</a>
+        </div>
+      </section>
+
+      <section class="plan">
+        <div class="plan-content">
+          <h2>Workshop & Man Cave</h2>
+          <p>
+            Container workshops need more than just space—they need electrical capacity for tools,
+            adequate lighting, and climate control for comfort. A 40ft high-cube with spray foam
+            insulation makes an excellent year-round workshop.
+          </p>
+          <p>
+            <strong>Must-haves:</strong> 200-amp subpanel, LED shop lights, mini-split HVAC,
+            epoxy floor coating, and wall-mounted tool storage to maximize floor space.
+          </p>
+          <a href="/blog/how-to-create-the-perfect-backyard-shipping-container-man-cave-in-2023/" class="btn">Build Your Man Cave</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-banner {
+    background: var(--orange);
+    padding: 2rem 0;
+  }
+
+  .page-banner h1 {
+    color: var(--white);
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  main {
+    padding: 3rem 0 4rem;
+    flex: 1;
+  }
+
+  .plan {
+    padding: 2rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .plan:last-child {
+    border-bottom: none;
+  }
+
+  .plan-content {
+    max-width: 800px;
+  }
+
+  .plan h2 {
+    color: var(--navy);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .plan p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .plan strong {
+    color: var(--navy);
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+  }
+</style>
